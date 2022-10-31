@@ -151,3 +151,22 @@ console.log(myLinkedList.get(100));
 
 myLinkedList.printAll();
 console.log(myLinkedList.length);
+
+/********************************************************************************
+*
+          linked list Omega overview   vs  array
+
+insertion  push   O(n)    O(1)
+insertion unshift O(1)    O(n)
+
+removal      pop  O(n)    O(1)
+removal  unshift  O(1)    O(n)
+
+insert mid        O(n)    O(n)
+
+search            O(n)    O(n)
+
+accessing         O(n)    O(1)// array 有 hash key
+
+*
+*********************************************************************************/  
