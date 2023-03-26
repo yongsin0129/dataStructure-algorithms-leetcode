@@ -3,10 +3,10 @@
  * @return {number}
  */
 var missingNumber = function (nums) {
-  const newSet = new Set(nums)
-  for (let index = 0; index <= newSet.size; index++) {
-    if (!newSet.has(index)) return index
-  }
+  // const newSet = new Set(nums)
+  // for (let index = 0; index <= newSet.size; index++) {
+  //   if (!newSet.has(index)) return index
+  // }
 }
 
 const nums1 = [3, 0, 1] // 2
@@ -36,5 +36,19 @@ Example 3:
 Input: nums = [9,6,4,2,3,5,7,0,1]
 Output: 8
 Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+*
+*********************************************************************************/
+
+/********************************************************************************
+*
+          解法 2 : index 相加再減去 arrayNumbers 相加就是缺少的那個數字
+
+  let indexSum = 0
+  let numsSum = 0
+  for (let index = 0; index <= nums.length; index++) {
+    numsSum += nums[index] || 0
+    indexSum += index
+  }
+  return indexSum - numsSum
 *
 *********************************************************************************/
