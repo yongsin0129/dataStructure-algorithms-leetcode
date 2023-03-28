@@ -1,13 +1,26 @@
+// /**
+//  * @param {number[]} nums
+//  * @return {boolean}
+//  */
+// const containsDuplicate = function (nums) {
+//   const obj = {}
+//   nums.forEach(v => {
+//     obj[v] = obj[v] ? obj[v] + 1 : 1
+//   })
+//   return Object.values(obj).some(values => values >= 2)
+// }
+
 /**
  * @param {number[]} nums
  * @return {boolean}
  */
 const containsDuplicate = function (nums) {
-  const obj = {}
-  nums.forEach(v => {
-    obj[v] = obj[v] ? obj[v] + 1 : 1
-  })
-  return Object.values(obj).some(values => values >= 2)
+  const set = new Set()
+  for (let i = 0; i < nums.length; i++) {
+    if (set.has(nums[i])) return true
+    else set.add(nums[i])
+  }
+  return false
 }
 
 const nums = [1, 2, 3, 1] // true
@@ -116,4 +129,5 @@ const num3 = [
 ]
 
 console.log(containsDuplicate(nums))
+console.log(containsDuplicate(nums2))
 console.log(containsDuplicate(num3))
