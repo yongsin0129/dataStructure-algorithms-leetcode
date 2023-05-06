@@ -20,23 +20,48 @@
 // step 2 : 將 map 做 loop 來比對 string t , 有 key 且值相等則將 key delete
 // 完全比對完則為 anagram , 否則就是 false
 
-// solve2
+// solve2  - new Map()
+// var isAnagram = function (s, t) {
+//   if (s.length !== t.length) return false
+
+//   const charCount = new Map()
+
+//   // 先用 string s 創建一個 map
+//   for (char of s) {
+//     if (charCount.has(char)) charCount.set(char, charCount.get(char) + 1)
+//     else charCount.set(char, 1)
+//   }
+
+//   // 對 string t 做 loop , 比對 map , 無 key 就 false , 有 key 就減 1 
+//   for (char of t) {
+//     if (!!charCount.has(char)) {
+//       charCount.set(char, charCount.get(char) - 1)
+//       if (charCount.get(char) === 0) charCount.delete(char)
+//     }
+//     else {
+//       return false
+//     }
+//   }
+//   return true
+// }
+
+// solve3 - counter object
 var isAnagram = function (s, t) {
-  if(s.length !== t.length) return false
+  if (s.length !== t.length) return false
 
-  const charCount = new Map()
+  const charCount = {}
 
-  // 先用 string s 創建一個 map
+  // 先用 string s 創建一個 counter obj
   for (char of s) {
     charCount[char] = charCount[char] ? charCount[char] + 1 : 1
   }
 
-  // 對 string t 做 loop , 比對 map , 無 key 就 false , 有 key 就減 1 
+  // 對 string t 做 loop , 比對 counter , 無 key 就 false , 有 key 就減 1 
   for (char of t) {
     if (!charCount[char]) return false
     else {
       charCount[char] -= 1
-      if (charCount[char] === 0) charCount.delete(char)
+      if (charCount[char] === 0) delete charCount[char]
     }
   }
 
