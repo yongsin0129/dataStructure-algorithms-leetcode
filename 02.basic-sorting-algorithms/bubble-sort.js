@@ -1,6 +1,6 @@
 function bubbleSort(arr) {
   let step = 0;
-  // 從 array 左邊開始， sorted element 
+  // 從 array 左邊開始， sorted element , 先排出最小的放在最左邊
   for (let i = 0; i <= arr.length - 2; i++) {
     // 從 array 右邊開始, pointer
     for (let j = arr.length - 1; j >= i + 1; j--) {
