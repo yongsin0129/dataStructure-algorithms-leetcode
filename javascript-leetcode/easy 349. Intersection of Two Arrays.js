@@ -5,7 +5,7 @@
  */
 
 // 解法 1
-var intersection = function (nums1, nums2) {
+var intersection1 = function (nums1, nums2) {
   let intersection = new Set()
   nums1.forEach((v) => {
     if (nums2.includes(v)) intersection.add(v)
@@ -14,7 +14,7 @@ var intersection = function (nums1, nums2) {
 }
 
 // 解法 2 Using two points - O(n log(n) ) Condition: we have to sort the two arrays.
-var intersection = function (nums1, nums2) {
+var intersection2 = function (nums1, nums2) {
 
   // js . quickSort (n log(n) ) 
   nums1.sort((a, b) => a - b)
@@ -44,11 +44,12 @@ var intersection = function (nums1, nums2) {
 }
 
 // 解法 3 counter  O( n + m )
-var intersection = function (nums1, nums2) {
+var intersection3 = function (nums1, nums2) {
   let obj = {}
   let result = []
   
   nums1.forEach((v) => obj[v] = obj[v] ? obj[v] : 1)
+  console.log("intersection3 ~ obj:", obj)
 
   nums2.forEach((v) => {
     if (obj[v] === 1) {
@@ -86,4 +87,4 @@ Constraints:
 
 const nums1 = [1, 2, 2, 1, 5, 6, 8, 11, 19, 20]
 const nums2 = [2, 2, 6, 7, 9, 19, 21]
-console.log(intersection(nums1, nums2))
+console.log(intersection3(nums1, nums2))
