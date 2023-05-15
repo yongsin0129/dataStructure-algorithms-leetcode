@@ -62,7 +62,7 @@ var minSubArrayLen2 = function (target, nums) {
   return minLen === Infinity ? 0 : minLen
 }
 
-// plus right , minus left  , O(2n) => O(n)
+// plus right , minus left  , loop 2n => O(n)
 var minSubArrayLen3 = function (target, nums) {
   let left = 0
   let right = 0
@@ -180,3 +180,41 @@ const target5 = 15, nums5 = [1, 2, 3, 4, 5]
 // Output: 5   noun
 console.log(minSubArrayLen3(15, nums5))
 
+/********************************************************************************
+*
+          說明 :
+
+// brutal  => Time Limit Exceeded O(n**2)
+[2, 3, 1, 2, 4, 3]
+[2, 3, 1, 2, 4]               
+[2, 3, 1, 2]
+[2, 3, 1]
+   [3, 1, 2, 4, 3]
+   [3, 1, 2, 4]
+   [3, 1, 2]
+       [1, 2, 4, 3]
+       [1, 2, 4]
+       [1, 2]
+
+
+// binary search O(n * log(n))   => Time Limit Exceeded
+[2, 3, 1, 10 ,2 , 4, 3 , 1]
+
+windowSize = array.length   // ex:8
+
+if windowExist => windowSize = windowSize/2  ex : 4
+else windowSize ++    ex : 5 , 6 , 7
+
+until windowSize = minLen
+
+
+// plus right , minus left  , O(2n) => O(n)
+[2, 3, 1, 10, 4, 3]
+
+[]
+
+
+
+              [4,3]
+*
+*********************************************************************************/
