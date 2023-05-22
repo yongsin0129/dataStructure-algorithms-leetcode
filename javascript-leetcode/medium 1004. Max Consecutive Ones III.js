@@ -67,3 +67,25 @@ nums[i] is either 0 or 1.
 0 <= k <= nums.length
 *
 *********************************************************************************/
+
+//網友解答
+var longestOnes = function (nums, k) {
+  let left = 0
+  let current = 0
+  let answer = 0
+
+  for (let right = 0; right < nums.length; right++) {
+    if (nums[right] === 0) {
+      current++
+    }
+
+    while (current > k) {
+      if (nums[left] === 0) {
+        current--
+      }
+      left++
+    }
+    answer = Math.max(answer, right - left + 1)
+  }
+  return answer
+}
