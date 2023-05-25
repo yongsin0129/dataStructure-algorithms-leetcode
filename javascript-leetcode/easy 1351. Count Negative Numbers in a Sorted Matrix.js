@@ -8,7 +8,6 @@ var countNegatives = function (grid) {
   const binarySearch = (arr) => {
     let left = 0
     let right = arr.length
-    let mid
 
     while (left < right) {
       let mid = Math.floor((left + right) / 2)
@@ -51,5 +50,34 @@ n == grid[i].length
  
 
 Follow up: Could you find an O(n + m) solution?
+
+var countNegatives = function (grid) {
+  const height = grid.length
+  const width = grid[0].length
+  let r = height - 1
+  let c = 0
+  let res = 0
+  while (r >= 0 && c < width) {
+    if (grid[r][c] >= 0) {
+      c++
+    } else {
+      res += width - c
+      r--
+    }
+  }
+  return res
+
+  r = 4 - 1 = 3
+  c = 0
+  res = 0
+  [-1,-1,-2,-3] | r=3
+  [ 1, 1,-1,-2] | r=2
+  [ 3, 2, 1,-1] | r=1
+  [ 4, 3, 2,-1] | r=0
+
+  c=0 c=1 c=2 c=3
+
+}
+
 *
 *********************************************************************************/
