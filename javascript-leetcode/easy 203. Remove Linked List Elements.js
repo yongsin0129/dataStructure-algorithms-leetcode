@@ -23,6 +23,20 @@ var removeElements = function (head, val) {
   return head
 };
 
+
+/********************************************************************************
+*
+[1,2,6,3,4,5,6]
+
+=> [1,1.next]
+=> [1,2,2.next]
+=> [1,2,3,3.next]
+=> [1,2,3,4,4.next]
+=> [1,2,3,4,5,5.next]
+=> [1,2,3,4,5]
+*
+*********************************************************************************/
+
 /********************************************************************************
 *
 Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
