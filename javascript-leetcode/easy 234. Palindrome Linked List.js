@@ -60,6 +60,30 @@ var isPalindrome = function (head) {
   return true
 }
 
+/********************************************************************************
+*
+recursive solution
+
+var isPalindrome = function(head) {
+    let left = head
+
+    return recursive(head)
+
+    function recursive (head){
+        if(head === null) return true 
+
+        let res = recursive(head.next)
+ 
+        let isValSame = left.val === head.val
+        left = left.next
+
+        return res && isValSame
+    }
+
+}
+*
+*********************************************************************************/
+
 
 /********************************************************************************
 *
@@ -120,6 +144,25 @@ function getMiddleNode(head) {
     }
 
     return slow;
+}
+*
+*********************************************************************************/
+
+/********************************************************************************
+*
+C++ recursive solution
+
+class Solution {
+    ListNode head;
+    public boolean isPalindrome(ListNode head) {
+        if(this.head==null) this.head=head;
+        if(head==null) return true;
+        
+        boolean flag = isPalindrome(head.next) && head.val == this.head.val;
+        this.head=this.head.next;
+        
+        return flag;
+    }
 }
 *
 *********************************************************************************/
