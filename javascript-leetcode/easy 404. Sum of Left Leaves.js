@@ -1,20 +1,24 @@
-var sumOfLeftLeaves = function(root) {
+var sumOfLeftLeaves = function (root) {
 
     let sum = 0
+    const queue = [[root, false]]
 
-    function traverse (node,isLeft) {
-        if(node===null) return
-        if(isLeft&&!node.left&&!node.right) sum = sum + node.val
-        traverse(node.left,true)
-        traverse(node.right,false)
+    function BFS (root, isLeft) {
+        if (!root) return
+        while (queue.length) {
+            const [node, isLeft] = queue.shift()
+
+            if (!!isLeft && !node.left && !node.right) sum = sum + node.val
+
+            node.left && queue.push([node.left, true])
+            node.right && queue.push([node.right, false])
+        }
     }
 
-    traverse(root,false)
+    BFS(root, false)
 
     return sum
 };
-
-
 
 /********************************************************************************
 *
@@ -79,3 +83,20 @@ var sumOfLeftLeaves = function(root) {
 
     return sum
 };
+
+// recursive solution
+var sumOfLeftLeaves = function (root) {
+
+    let sum = 0
+
+    function traverse (node, isLeft) {
+        if (node === null) return
+        if (isLeft && !node.left && !node.right) sum = sum + node.val
+        traverse(node.left, true)
+        traverse(node.right, false)
+    }
+
+    traverse(root, false)
+
+    return sum
+}
