@@ -61,14 +61,14 @@ var sumOfLeftLeaves = function(root) {
     // queue record node and level and isLeft , using push , shift
     let queue = []
 
-    function BFS (node,level) {
+    function DFS (node,level) {
         if(node===null) return
         node.left && queue.push([node.left,level,true])
         node.right && queue.push([node.right,level,false])
-        BFS(node.left,level+1)
-        BFS(node.right,level+1)
+        DFS(node.left,level+1)
+        DFS(node.right,level+1)
     }
-    BFS(root,1)
+    DFS(root,1)
 
     let countLevel = 1
 
@@ -89,14 +89,14 @@ var sumOfLeftLeaves = function (root) {
 
     let sum = 0
 
-    function traverse (node, isLeft) {
+    function DFS (node, isLeft) {
         if (node === null) return
         if (isLeft && !node.left && !node.right) sum = sum + node.val
-        traverse(node.left, true)
-        traverse(node.right, false)
+        DFS(node.left, true)
+        DFS(node.right, false)
     }
 
-    traverse(root, false)
+    DFS(root, false)
 
     return sum
 }
