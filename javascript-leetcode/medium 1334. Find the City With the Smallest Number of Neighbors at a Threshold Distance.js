@@ -36,7 +36,7 @@ var findTheCity = function (n, edges, distanceThreshold) {
     }
   }
 
-  /*
+  /* Adjacency Matrix
   [ 
     [ 6, 3, 4, 5 ], // city0 到各城市的距離
     [ 3, 2, 1, 2 ], // city1 到各城市的距離
